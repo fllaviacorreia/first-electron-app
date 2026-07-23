@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain} = require('electron/main')
 const path = require('path')
 
 const createWindow = () => {
@@ -14,6 +14,8 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
+    // here is the message handler for the 'ping' event from the renderer process
+    ipcMain.handle('ping', () => 'pong') // handle the 'ping' event from the renderer process
     createWindow();
 
     //Open a window if none are open (macOS)

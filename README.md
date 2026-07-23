@@ -66,7 +66,15 @@ npm run start
 
 #### Implementando o preload
 
-- Foi criado o arquivo ``preload.js` para expor as funções/processos necessários em 'versões'.
+- Foi criado o arquivo `preload.js` para expor as funções/processos necessários em 'versões'.
 - Foi criado o `renderer.js` para utilizar-se do dom e funções como `getElementById`
 - Foi modificado o `createWindow` para chamar o preload
 - Foi adicionado o script `renderer.js` e a tag de parágrado com o ido configurado em `index.html`
+
+#### Comunicação entre processos
+
+![warning icp renderer invoke](./assets/readme/warning_icp.png)
+
+- Foi adicionada a chamada de invocação com ping do IPC renderer em `preload.js`
+- Foi adicionado o IPC Main com handle em `main.js`
+- Foi adicionado o ping em `renderer.js`
