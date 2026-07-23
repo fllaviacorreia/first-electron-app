@@ -1,12 +1,10 @@
-# First Electron App
+# Learning Electron App
 
 ## Descrição
 Este é um repositório com o início de uso do framework Electron.
-
 O foco aqui foi compreender como estruturar inicialmente um projeto, quais as necessidades e como organizar tudo.
 
 ## Tecnologias
-
 - NodeJS
 - NPM
 - package Electron
@@ -15,6 +13,9 @@ O foco aqui foi compreender como estruturar inicialmente um projeto, quais as ne
 
 ## Passo a passo (seguindo a doc)
 
+### Parte 1
+
+#### Estrutura básica do projeto
 Crie uma pasta do seu projeto 
 
 ```(bash)
@@ -54,48 +55,18 @@ Para iniciar o projeto rode no terminal
 npm run start
 ```
 
-### Implementando melhorias
+#### Implementando melhorias
 
 - Em cima desse projeto base e seguindo a documentação foi criado um arquivo .HTML
 - Foi adicionado o template da página do docs.
-- Foi adicionado em main.js o código para criação de uma janela:
-
-```(bash)
-// módulos necessários para implementação
-const { app, BrowserWindow } = require('electron')
-
-// criação da janela com largura de 800px e altura de 600px
-const createWindow = () => {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600
-  })
-
-  // chamada do arquivo index.html
-  win.loadFile('index.html')
-}
-
-// quando a aplicação estiver pronta, cria-se a janela com o conteúdo do index.html renderizado.
-app.whenReady().then(() => {
-  createWindow()
-})
-```
-
+- Foi adicionado em main.js o código para criação de uma janela
 - Foi adicionado um código de lifecycle da janela
 
-```(bash)
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
-})
-```
+### Parte 2
 
+#### Implementando o preload
 
-```(bash)
-app.whenReady().then(() => {
-  createWindow()
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
-})
-```
+- Foi criado o arquivo ``preload.js` para expor as funções/processos necessários em 'versões'.
+- Foi criado o `renderer.js` para utilizar-se do dom e funções como `getElementById`
+- Foi modificado o `createWindow` para chamar o preload
+- Foi adicionado o script `renderer.js` e a tag de parágrado com o ido configurado em `index.html`
