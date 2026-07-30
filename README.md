@@ -78,3 +78,17 @@ npm run start
 - Foi adicionada a chamada de invocação com ping do IPC renderer em `preload.js`
 - Foi adicionado o IPC Main com handle em `main.js`
 - Foi adicionado o ping em `renderer.js`
+
+### Parte 3
+
+
+### Parte final
+
+#### Implementando o electron forge
+```text
+Electron does not have any tooling for packaging and distribution bundled into its core modules. Once you have a working Electron app in dev mode, you need to use additional tooling to create a packaged app you can distribute to your users (also known as a distributable). Distributables can be either installers (e.g. MSI on Windows) or portable executable files (e.g. .app on macOS).
+
+Electron Forge is an all-in-one tool that handles the packaging and distribution of Electron apps. Under the hood, it combines a lot of existing Electron tools (e.g. @electron/packager, @electron/osx-sign, electron-winstaller, etc.) into a single interface so you do not have to worry about wiring them all together.
+```
+- Foi instalada a lib do electron forge
+- Foi criado o arquivo `forge.config.js`
