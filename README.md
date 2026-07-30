@@ -84,7 +84,7 @@ npm run start
 
 #### Implementação de Dark Mode
 
-- Foi limpo os arquivos locais com infos não necessárias e trocado de Common para ES Module
+- Foi limpo os arquivos locais com infos não necessárias
 - Foi chamado o `IPC Main` e `nativeTheme` em `main.js` 
 - Foi adicionado estilização em `style.css` e adicionado botões em `index.html`
 - Foi adicionado no `preload.js` exposição do ipcRenderer para rederizar os dois processos
