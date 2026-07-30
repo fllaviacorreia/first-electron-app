@@ -1,19 +1,18 @@
-import { app, BrowserWindow, ipcMain, nativeTheme } from 'electron/main'
-import { join } from 'node:path'
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron/main')
+const path = require('node:path')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
   win.loadFile('index.html')
-}
 
-ipcMain.handle('dark-mode:toggle', () => {
+  ipcMain.handle('dark-mode:toggle', () => {
   if (nativeTheme.shouldUseDarkColors) {
     nativeTheme.themeSource = 'light'
   } else {
@@ -25,6 +24,8 @@ ipcMain.handle('dark-mode:toggle', () => {
 ipcMain.handle('dark-mode:system', () => {
   nativeTheme.themeSource = 'system'
 })
+}
+
 
 
 app.whenReady().then(() => {
