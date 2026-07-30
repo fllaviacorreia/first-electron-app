@@ -78,3 +78,9 @@ npm run start
 - Foi adicionada a chamada de invocação com ping do IPC renderer em `preload.js`
 - Foi adicionado o IPC Main com handle em `main.js`
 - Foi adicionado o ping em `renderer.js`
+
+
+### Parte 3
+
+#### Implementação de Dark Mode
+
