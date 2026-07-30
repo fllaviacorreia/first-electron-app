@@ -1,8 +1,13 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron/main')
+const { app, BrowserWindow, ipcMain } = require('electron/main')
 const path = require('node:path')
+const { configDarkMode } = require('./configs/darkModeToggle')
+const { configBluetooth } = require('./configs/webBluetooth')
 
-const createWindow = () => {
-    const win = new BrowserWindow({
+let bluetoothPinCallback
+let selectBluetoothCallback
+
+function createWindow() {
+    const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
@@ -10,23 +15,12 @@ const createWindow = () => {
         }
     })
 
-    win.loadFile('index.html')
+    // configs
+    configBluetooth(mainWindow, ipcMain, bluetoothPinCallback, selectBluetoothCallback)
+    configDarkMode()
 
-    ipcMain.handle('dark-mode:toggle', () => {
-        if (nativeTheme.shouldUseDarkColors) {
-            nativeTheme.themeSource = 'light'
-        } else {
-            nativeTheme.themeSource = 'dark'
-        }
-        return nativeTheme.shouldUseDarkColors
-    })
-
-    ipcMain.handle('dark-mode:system', () => {
-        nativeTheme.themeSource = 'system'
-    })
+    mainWindow.loadFile('index.html')
 }
-
-
 
 app.whenReady().then(() => {
     createWindow()

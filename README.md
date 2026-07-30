@@ -89,3 +89,13 @@ npm run start
 - Foi adicionado estilização em `style.css` e adicionado botões em `index.html`
 - Foi adicionado no `preload.js` exposição do ipcRenderer para rederizar os dois processos
 - Foi adicionado o controle de botões no ``renderer.js`
+
+### Parte 4
+
+#### Implementação o Bluetooth
+
+- Criado arquivo de configuração externo de dark mode em `functions/darkModeToogle.js`
+- Criado arquivo de configuração de uso do device bluetooth em `functions/webBluetooth.js`
+- Atualizado `preload.js` para expose in main world
+- Atualizado `index.html` para adicionar a atualização
+- Atualizado o `renderer.js` para uso de Bluetooth
