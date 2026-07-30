@@ -1,12 +1,12 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron/main')
-const path = require('node:path')
+import { app, BrowserWindow, ipcMain, nativeTheme } from 'electron/main'
+import { join } from 'node:path'
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: join(__dirname, 'preload.js')
     }
   })
 
